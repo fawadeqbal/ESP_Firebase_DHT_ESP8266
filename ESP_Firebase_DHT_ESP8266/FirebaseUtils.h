@@ -18,6 +18,8 @@ void firebaseConfig();
 void sendData(const String& path, bool status);
 void sendData(const String& path, int value);
 void sendData(const String& path, float value);
+void sendData(const String& path, unsigned long value);
 void sendData(const String& path, const String& value);
+void sendData(const String& path, double value);
 
 #endif // FIREBASE_UTILS_H 

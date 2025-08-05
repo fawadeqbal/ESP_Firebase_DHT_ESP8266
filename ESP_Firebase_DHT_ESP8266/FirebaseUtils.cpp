@@ -55,8 +55,30 @@ void sendData(const String& path, float value) {
     }
 }
 
+void sendData(const String& path, unsigned long value) {
+    if (Firebase.RTDB.setInt(&fbdo, path, value)) {
+        Serial.println("PASSED");
+        Serial.println("PATH: " + fbdo.dataPath());
+        Serial.println("TYPE: " + fbdo.dataType());
+    } else {
+        Serial.println("FAILED");
+        Serial.println("REASON: " + fbdo.errorReason());
+    }
+}
+
 void sendData(const String& path, const String& value) {
     if (Firebase.RTDB.setString(&fbdo, path, value)) {
+        Serial.println("PASSED");
+        Serial.println("PATH: " + fbdo.dataPath());
+        Serial.println("TYPE: " + fbdo.dataType());
+    } else {
+        Serial.println("FAILED");
+        Serial.println("REASON: " + fbdo.errorReason());
+    }
+}
+
+void sendData(const String& path, double value) {
+    if (Firebase.RTDB.setDouble(&fbdo, path, value)) {
         Serial.println("PASSED");
         Serial.println("PATH: " + fbdo.dataPath());
         Serial.println("TYPE: " + fbdo.dataType());
